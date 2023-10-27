@@ -3,31 +3,22 @@
    
       <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
       <v-divider></v-divider>
-      <v-list-item  to="\passwords\1 link title="List Item 1"></v-list-item>
-      <v-list-item link title="List Item 2"></v-list-item>
+
+      <v-list-item href="\" link title="Home"></v-list-item>
+      <v-list-item href="\passwords\1" link title="Passwords"></v-list-item>
+    
       <v-list-item link title="List Item 3"></v-list-item>
   
   </div>
 </template>
 <script setup lang="ts">
-const items = [
-  {
-    name: "Item #1",
-    id: 1,
-  },
-  {
-    name: "Item #2",
-    id: 2,
-  },
-  {
-    name: "Item #3",
-    id: 3,
-  },
-];
+
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .side-bar-container {
-  width: 25l0px;
+@apply  w-60 text-white bg-zinc-700 max-h-screen h-screen  pr-1.5;
+
+  
 }
 </style>
