@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
-  ,
+  
 
   alias: {
     cookie: resolve(__dirname, "node_modules/cookie"),

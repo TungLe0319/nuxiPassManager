@@ -124,14 +124,24 @@ const route = useRoute();
 const router = useRouter();
 const { data } = await useFetch(`/api/passwords/${route.params.id}`);
 const revealPassword = ref(false);
+import { subtle, randomUUID, getRandomValues } from "uncrypto";
+
 
 function toggleRevealPassword() {
   revealPassword.value = !revealPassword.value;
 }
 
+
+
 function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text);
 }
+
+
+
+
+
+
 </script>
 
 <style lang="scss" scoped>
