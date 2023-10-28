@@ -4,7 +4,8 @@
 
     <v-list>
       <v-list-item v-for="p in passwords" :key="p.title" class="!p-0 !m-0">
-        <v-btn block rounded="0"  size="x-large" class="!justify-between !p-8">
+       <Nuxt-link :to="`/passwords/${p.id}`">
+         <v-btn block rounded="0"  size="x-large" class="!justify-between !p-8" >
           <div class="flex space-x-2 items-center">
             <v-avatar color="grey-lighten-1">
               <v-icon color="white">mdi-folder</v-icon>
@@ -12,6 +13,7 @@
             <span> {{ p.title }}</span>
           </div>
         </v-btn>
+       </Nuxt-link>
       </v-list-item>
     </v-list>
   </div>

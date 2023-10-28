@@ -1,9 +1,9 @@
 <template>
   <div class="side-bar-container">
-    <v-card class="mx-auto">
+    <v-card class="mx-auto" rounded="0">
       <v-layout>
         <v-navigation-drawer permanent absolute>
-          <v-list>
+          <!-- <v-list>
             <v-list-item
               prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
               title="John Leider"
@@ -13,8 +13,10 @@
                 <v-btn size="small" variant="text" icon="mdi-menu-down"></v-btn>
               </template>
             </v-list-item>
-          </v-list>
 
+          </v-list>
+           -->
+          <AuthLogin />
           <v-divider></v-divider>
 
           <v-list :lines="false" density="compact" nav>
@@ -41,8 +43,9 @@
   </div>
 </template>
 <script setup lang="ts">
+import AuthLogin from "./AuthLogin.vue";
 const items = [
-  { text: "Passwords", icon: "mdi-folder", link: "passwords" },
+  { text: "Passwords", icon: "mdi-folder", link: "/passwords" },
   { text: "Shared with me", icon: "mdi-account-multiple", link: `/` },
   { text: "Starred", icon: "mdi-star", link: "" },
   { text: "Recent", icon: "mdi-history" },
@@ -54,6 +57,6 @@ const items = [
 
 <style lang="scss" scoped>
 .side-bar-container {
-  @apply  text-white bg-zinc-700 max-h-screen h-screen;
+  @apply text-white bg-zinc-700 max-h-screen h-screen;
 }
 </style>
