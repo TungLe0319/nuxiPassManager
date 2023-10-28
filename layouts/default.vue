@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper ">
   <div class="side-bar">
       <SideBar></SideBar>
   </div>
@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import SideBar from "../components/SideBar.vue";
+import '../assets/main.postcss'
 </script>
 
 <style lang="scss" scoped>

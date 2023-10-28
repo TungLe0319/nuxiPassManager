@@ -16,9 +16,10 @@
 
           </v-list>
            -->
+
           <AuthLogin />
           <v-divider></v-divider>
-
+          <nuxt-link to="passwords"> passwords </nuxt-link>
           <v-list :lines="false" density="compact" nav>
             <v-list-item
               v-for="(item, i) in items"
