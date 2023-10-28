@@ -5,10 +5,14 @@
     >
       <div class="flex flex-col w-full px-40">
         <div class="flex flex-col space-y-2">
-          <!-- <div class="text-5xl font-1 text-center">
-            {{ data?.title }}
+          <div class="text-5xl font-1 text-center my-5 flex justify-start">
+            <v-btn
+              @click="() => router.go(-1)"
+              class="rounded-full bg-zinc-800 text-white"
+              size="x-large"
+              ><v-icon>mdi-arrow-left</v-icon></v-btn
+            >
           </div>
-          -->
 
           <v-card>
             <v-toolbar color="secondary">
@@ -22,7 +26,7 @@
 
               <v-spacer></v-spacer>
 
-              <v-btn variant="text" icon="mdi-magnify"></v-btn>
+             
 
               <v-btn variant="text" icon="mdi-view-module"></v-btn>
             </v-toolbar>
@@ -99,8 +103,9 @@
                 <template v-slot:append>
                   <v-btn
                     color="grey-lighten-1"
-                    icon="mdi-information"
+                    icon="mdi-clipboard"
                     variant="text"
+                    @click="copyToClipboard(data.email)"
                   ></v-btn>
                 </template>
               </v-list-item>
@@ -108,43 +113,6 @@
               <v-divider inset></v-divider>
             </v-list>
           </v-card>
-
-          <!-- 
-          <div class="card-container">
-            <div class="card">
-              <div class="card-label font-1">Email</div>
-              <div class="card-value font-2">{{ data.email }}</div>
-            </div>
-
-            <div class="password-card relative">
-              <div class="card-label font-1">Password</div>
-              <div
-                class="card-value text-center items-center flex"
-                v-if="!revealPassword"
-              >
-                ******
-              </div>
-              <div class="card-value font-2" v-else>{{ data.password }}</div>
-
-              <button class="absolute right-3 top-2.5  p-1 hidden  rounded-full bg-gray-300" @click="toggleRevealPassword">
-                <v-icon
-                
-                  :icon="!revealPassword ? 'mdi-eye' : 'mdi-eye-closed'"
-                ></v-icon>
-              </button>
-            </div>
-
-            <div class="card">
-              <div class="card-label font-1">Website</div>
-              <div class="card-value font-2">{{ data.website }}</div>
-            </div>
-              <div class="card">
-              <div class="card-label font-1">Created</div>
-              <div class="card-value font-2">{{ new Date(data.createdAt).toLocaleDateString() }}</div>
-            </div>
-            
-          </div>
- -->
         </div>
       </div>
     </div>
@@ -153,6 +121,7 @@
 
 <script setup lang="ts">
 const route = useRoute();
+const router = useRouter();
 const { data } = await useFetch(`/api/passwords/${route.params.id}`);
 const revealPassword = ref(false);
 
@@ -160,8 +129,7 @@ function toggleRevealPassword() {
   revealPassword.value = !revealPassword.value;
 }
 
-function copyToClipboard(text:string) {
-  //btw writeText() returns a promise so you could utilize that somehow if you want
+function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text);
 }
 </script>

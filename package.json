@@ -8,12 +8,16 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "prismadb": "npx prisma migrate dev --name init"
+    "prismadb": "npx prisma migrate dev --name init",
+    "studio": "npx prisma studio",
+    "runDev": "bun run dev",
+    "start": "concurrently \"bun run studio\" \"bun run runDev\""
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.1",
     "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
     "nuxt": "^3.8.0",
     "postcss": "^8.4.31",
     "prisma": "5.5.2",
@@ -28,6 +32,7 @@
     "@formkit/vue": "next",
     "@hebilicious/authjs-nuxt": "^0.3.5",
     "@mdi/font": "^7.3.67",
+    "@pinia/nuxt": "^0.5.1",
     "@prisma/client": "5.5.2",
     "elysia": "^0.7.21",
     "sass": "^1.69.5"
