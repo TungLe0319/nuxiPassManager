@@ -19,7 +19,7 @@
 <script setup lang="ts">
 const { data } = await useFetch("/api/passwords/get");
 
-const passwords = data?.value?.body.randomDataSets;
+const passwords = data?.value
 </script>
 
 <style></style>
