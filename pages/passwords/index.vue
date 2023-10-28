@@ -1,102 +1,25 @@
 <template>
-  <v-card
-   
-    width="1600"
-  >
-    <v-toolbar color="secondary">
-      <!-- <v-btn variant="text" icon="mdi-menu"></v-btn> -->
+  <div class="overflow-y-scroll max-h-screen">
+    <div class="title text-2xl">My Passwords</div>
 
-      <v-toolbar-title>My files</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn variant="text" icon="mdi-magnify"></v-btn>
-
-      <v-btn variant="text" icon="mdi-view-module"></v-btn>
-    </v-toolbar>
-
-    <v-list lines="two">
-      <v-list-subheader inset>Folders</v-list-subheader>
-
-      <v-list-item
-        v-for="folder in folders"
-        :key="folder.title"
-        :title="folder.title"
-        :subtitle="folder.subtitle"
-      >
-        <template v-slot:prepend>
-          <v-avatar color="grey-lighten-1">
-            <v-icon color="white">mdi-folder</v-icon>
-          </v-avatar>
-        </template>
-
-        <template v-slot:append>
-          <v-btn
-            color="grey-lighten-1"
-            icon="mdi-information"
-            variant="text"
-          ></v-btn>
-        </template>
-      </v-list-item>
-
-      <v-divider inset></v-divider>
-
-      <v-list-subheader inset>Files</v-list-subheader>
-
-      <v-list-item
-        v-for="file in files"
-        :key="file.title"
-        :title="file.title"
-        :subtitle="file.subtitle"
-      >
-        <template v-slot:prepend>
-          <v-avatar :color="file.color">
-            <v-icon color="white">{{ file.icon }}</v-icon>
-          </v-avatar>
-        </template>
-
-        <template v-slot:append>
-          <v-btn
-            color="grey-lighten-1"
-            icon="mdi-information"
-            variant="text"
-          ></v-btn>
-        </template>
+    <v-list>
+      <v-list-item v-for="p in passwords" :key="p.title" class="!p-0 !m-0">
+        <v-btn block rounded="0"  size="x-large" class="!justify-between !p-8">
+          <div class="flex space-x-2 items-center">
+            <v-avatar color="grey-lighten-1">
+              <v-icon color="white">mdi-folder</v-icon>
+            </v-avatar>
+            <span> {{ p.title }}</span>
+          </div>
+        </v-btn>
       </v-list-item>
     </v-list>
-  </v-card>
+  </div>
 </template>
-<script>
-  export default {
-    data: () => ({
-      files: [
-        {
-          color: 'blue',
-          icon: 'mdi-clipboard-text',
-          subtitle: 'Jan 20, 2014',
-          title: 'Vacation itinerary',
-        },
-        {
-          color: 'amber',
-          icon: 'mdi-gesture-tap-button',
-          subtitle: 'Jan 10, 2014',
-          title: 'Kitchen remodel',
-        },
-      ],
-      folders: [
-        {
-          subtitle: 'Jan 9, 2014',
-          title: 'Photos',
-        },
-        {
-          subtitle: 'Jan 17, 2014',
-          title: 'Recipes',
-        },
-        {
-          subtitle: 'Jan 28, 2014',
-          title: 'Work',
-        },
-      ],
-    }),
-  }
+<script setup lang="ts">
+const { data } = await useFetch("/api/passwords/get");
+
+const passwords = data?.value?.body.randomDataSets;
 </script>
+
+<style></style>

@@ -1,7 +1,11 @@
 <template>
   <div class="wrapper">
-    <SideBar></SideBar>
-    <slot />
+  <div class="side-bar">
+      <SideBar></SideBar>
+  </div>
+  <div class="slot">
+      <slot />
+  </div>
   </div>
 </template>
 
@@ -9,9 +13,14 @@
 import SideBar from "../components/SideBar.vue";
 </script>
 
-<style>
-
-.wrapper{
-  @apply flex
+<style lang="scss" scoped>
+.wrapper {
+  @apply flex w-full  max-h-screen h-screen;
+}
+.side-bar{
+  @apply w-1/6
+}
+.slot{
+  @apply  w-5/6
 }
 </style>

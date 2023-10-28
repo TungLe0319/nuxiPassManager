@@ -8,7 +8,7 @@ export default {
     "./app.vue",
     "./error.vue",
   ],
-  css: ["~/assets/main.scss"],
+  css: ["~/assets/main.css"],
   theme: {
     extend: {},
   },

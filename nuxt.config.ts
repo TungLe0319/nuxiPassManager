@@ -12,6 +12,7 @@ export default defineNuxtConfig({
       });
     },
     //...
+    "@nuxtjs/tailwindcss",
   ],
   vite: {
     vue: {
@@ -32,7 +33,7 @@ export default defineNuxtConfig({
           "./app.vue",
           "./error.vue",
         ],
-        css: ["~/assets/main.scss"],
+        css: ["~/assets/main.postcss"],
         theme: {
           extend: {},
         },

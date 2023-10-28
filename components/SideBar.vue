@@ -54,6 +54,6 @@ const items = [
 
 <style lang="scss" scoped>
 .side-bar-container {
-  @apply w-60 text-white bg-zinc-700 max-h-screen h-screen;
+  @apply  text-white bg-zinc-700 max-h-screen h-screen;
 }
 </style>
