@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prismadb": "npx prisma migrate dev --name init"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -28,6 +29,7 @@
     "@hebilicious/authjs-nuxt": "^0.3.5",
     "@mdi/font": "^7.3.67",
     "@prisma/client": "5.5.2",
-    "elysia": "^0.7.21"
+    "elysia": "^0.7.21",
+    "sass": "^1.69.5"
   }
 }

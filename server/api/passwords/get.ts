@@ -12,11 +12,9 @@ export default defineEventHandler(async (event) => {
 
 // const template = {
 //   title: "",
-//   email: "",
 //   password: "",
-//   health: "",
 //   website: "",
-//   folder: "1",
+//    note : ""
 // };
 
 // function randomString(length: number) {

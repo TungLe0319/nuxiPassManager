@@ -13,21 +13,10 @@
             v-model="passwordData.title"
             required
           />
-          <span  class=" test-xs mt-2 font-2">* Required</span>
+          <span class="test-xs mt-2 font-2">* Required</span>
         </div>
 
-        <div class="">
-          <label for="email" class="block font-medium text-sm text-gray-700"
-            >Email</label
-          >
-          <input
-            id="email"
-            type="email"
-            class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            v-model="passwordData.email"
-            required
-          />
-        </div>
+    
 
         <div class="">
           <label for="password" class="block font-medium text-sm text-gray-700"
@@ -68,7 +57,7 @@
         </div>
       </div>
 
-      <button type="submit">Submit</button>
+      <v-btn type="submit" class="mt-2 !bg-zinc-800 text-white">Submit</v-btn>
     </form>
   </div>
 </template>
@@ -79,23 +68,20 @@ const { session } = useAuth();
 const valid = ref(true);
 const passwordData = ref({
   title: "Testing",
-  email: "fake12@example.com",
   password: "1234123412341324",
-  health: 0,
   website: "https://www.google.com",
   note: "PASSWORD FOR GOOGLE PLEASE",
 });
 
 async function createPassword() {
   try {
-
     // console.log(passwordData.value);
-    
+
     const res = await useFetch("/api/passwords/post", {
+      method: "post",
       body: passwordData,
     });
     console.log(res.data.value);
-    
   } catch (error) {
     // logger.error(error)
   }

@@ -20,7 +20,12 @@ export default defineNuxtConfig({
     //...
     "@nuxtjs/tailwindcss",
     "@hebilicious/authjs-nuxt",
+    "@pinia/nuxt",
   ],
+
+  pinia: {
+    storesDirs: ["./stores/**", "./custom-folder/stores/**"],
+  },
   vite: {
     vue: {
       template: {

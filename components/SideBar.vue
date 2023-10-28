@@ -1,63 +1,68 @@
 <template>
   <div class="side-bar-container">
-    <v-card class="mx-auto" rounded="0">
-      <v-layout>
-        <v-navigation-drawer permanent absolute>
-          <!-- <v-list>
-            <v-list-item
-              prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
-              title="John Leider"
-              subtitle="john@google.com"
-            >
-              <template v-slot:append>
-                <v-btn size="small" variant="text" icon="mdi-menu-down"></v-btn>
-              </template>
-            </v-list-item>
+    <div class="p-2">
+      <AuthLogin />
+      <div class="flex flex-col font-1">
+        <v-item-group selected-class="bg-orange-400">
+          <v-container>
+            <v-row>
+              <v-col class="!p-0" cols="12">
+                <nuxt-link to="/passwords">
+                  <v-item v-slot="{ isSelected, selectedClass, toggle }">
+                    <v-card
+                      :class="['d-flex align-center', selectedClass]"
+                      dark
+                      flat
+                      rounded="0"
+                      @click="toggle"
+                    >
+                   <div class="font-1 p-1 w-full flex items-center ">
+                        <v-icon
+                          icon="mdi-folder"
+                          :class="isSelected ? 'text-white' : ' text-zinc-500'"
+                        ></v-icon>
+                        Passwords
+                      </div>
+                    </v-card>
+                  </v-item>
+                </nuxt-link>
+              </v-col>
 
-          </v-list>
-           -->
-
-          <AuthLogin />
-          <v-divider></v-divider>
-          <nuxt-link to="passwords"> passwords </nuxt-link>
-          <v-list :lines="false" density="compact" nav>
-            <v-list-item
-              v-for="(item, i) in items"
-              :key="i"
-              :value="item"
-              color="primary"
-              link
-              :href="`${item.link}`"
-            >
-              <template v-slot:prepend>
-                <v-icon :icon="item.icon"></v-icon>
-              </template>
-
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-navigation-drawer>
-
-        <v-main class="h-screen"></v-main>
-      </v-layout>
-    </v-card>
+              <v-col class="!p-0" cols="12">
+                <nuxt-link to="/">
+                  <v-item v-slot="{ isSelected, selectedClass, toggle }">
+                    <v-card
+                      :class="['d-flex align-center', selectedClass]"
+                      dark
+                      flat
+                      rounded="0"
+                      @click="toggle"
+                    >
+                      <div class="font-1 p-1 w-full flex items-center ">
+                        <v-icon
+                          icon="mdi-home"
+                          :class="isSelected ? 'text-white' : ' text-zinc-500'"
+                        ></v-icon>
+                        Home
+                      </div>
+                    </v-card>
+                  </v-item>
+                </nuxt-link>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-item-group>
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 import AuthLogin from "./AuthLogin.vue";
-const items = [
-  { text: "Passwords", icon: "mdi-folder", link: "/passwords" },
-  { text: "Shared with me", icon: "mdi-account-multiple", link: `/` },
-  { text: "Starred", icon: "mdi-star", link: "" },
-  { text: "Recent", icon: "mdi-history" },
-  { text: "Offline", icon: "mdi-check-circle", link: "" },
-  { text: "Uploads", icon: "mdi-upload" },
-  { text: "Backups", icon: "mdi-cloud-upload", link: "" },
-];
+
 </script>
 
 <style lang="scss" scoped>
 .side-bar-container {
-  @apply text-white bg-zinc-700 max-h-screen h-screen;
+  @apply max-h-screen h-screen border-r-2;
 }
 </style>

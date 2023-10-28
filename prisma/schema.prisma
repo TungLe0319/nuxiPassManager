@@ -10,14 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  email     String   @unique
+  id        Int        @id @default(autoincrement())
+  createdAt DateTime   @default(now())
+  email     String     @unique
   name      String?
-  passwords     Password[]
-  folders Folder[]
+  passwords Password[]
+  folders   Folder[]
 }
 
 model Password {
@@ -27,18 +26,19 @@ model Password {
   title     String   @db.VarChar(255)
   user      User?    @relation(fields: [userId], references: [id])
   userId    Int?
-  folder    Folder?  @relation(fields: [folderId], references: [id]) // Make the relation optional
+  folder    Folder?  @relation(fields: [folderId], references: [id])
   folderId  Int?
-  website String     @db.VarChar(255)
-  note String @db.VarChar(255)
+  website   String   @db.VarChar(255)
+  email     String   @db.VarChar(255)
+  password String @db.VarChar(255)
+  note      String   @db.VarChar(255)
 }
 
-
-model Folder {  
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  passwords     Password[]
- user    User?    @relation(fields: [userId], references: [id])
-  userId  Int?
+model Folder {
+  id        Int        @id @default(autoincrement())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  passwords Password[]
+  user      User?      @relation(fields: [userId], references: [id])
+  userId    Int?
 }
