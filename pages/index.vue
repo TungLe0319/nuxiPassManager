@@ -29,6 +29,32 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+  title: 'NordPass Clone - Secure Password Management',
+  description: 'Manage and secure your passwords with the NordPass Clone. Keep your online accounts safe and easily accessible.',
+  ogTitle: 'NordPass Clone - Secure Password Management',
+  ogDescription: 'Safeguard your passwords and simplify password management with the NordPass Clone.',
+  ogImage: '/og-image.png', // Provide the URL of your Open Graph image
+  ogUrl: 'https://www.example.com/nordpass-clone', // Your application's URL
+  twitterTitle: 'NordPass Clone - Password Security and Management',
+  twitterDescription: 'Protect your passwords and simplify password management with the NordPass Clone.',
+  twitterImage: '/twitter-image.png', // Provide the URL of your Twitter Card image
+  twitterCard: 'summary',
+});
+
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      href: '/favicon.png', // Your application's favicon
+    }
+  ]
+});
+
 </script>
 
 <style>
@@ -44,3 +70,5 @@
 
 
 </style>
+
+
